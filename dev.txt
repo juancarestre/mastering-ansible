@@ -1,0 +1,13 @@
+[loadbalancer]
+lb01 ansible_host=3.83.154.20 ansible_ssh_private_key_file=/home/ubuntu/codecommitEC2deploykeypair.pem ansible_user=ubuntu
+
+[webserver]
+app01 ansible_host=34.238.252.200 ansible_ssh_private_key_file=/home/ubuntu/codecommitEC2deploykeypair.pem ansible_user=ubuntu
+
+app02 ansible_host=34.238.252.200 ansible_ssh_private_key_file=/home/ubuntu/codecommitEC2deploykeypair.pem ansible_user=ubuntu
+
+[database]
+db ansible_host=34.238.249.42 ansible_ssh_private_key_file=/home/ubuntu/codecommitEC2deploykeypair.pem ansible_user=ubuntu
+
+[control]
+control ansible_connection=local

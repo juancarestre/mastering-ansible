@@ -1,0 +1,18 @@
+---
+- hosts: webserver
+  become: true
+  tasks:
+    - name: install apache2 httpd24
+      yum:
+        name:
+          [
+            "httpd",
+            "mod_wsgi.x86_64",
+            "python-pip",
+            "python-virtualenv",
+          ]
+        state: present
+    - name: ensure httpd started
+      service: name=httpd state=started enabled=yes
+    - name: ensure mod_wsgi enabled
+      apache2_module: state=present name=wsgi

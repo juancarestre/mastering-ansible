@@ -1,0 +1,8 @@
+---
+  - hosts: control
+    become: true
+    tasks:
+      - name: install tools
+        yum:
+          name: curl
+          state: present

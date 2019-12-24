@@ -1,0 +1,10 @@
+---
+- hosts: loadbalancer
+  become: yes
+  tasks:
+    - name: install nginx
+      command: amazon-linux-extras install nginx1.12=latest -y
+      args:
+        creates: /sbin/nginx
+    - name: ensure nginx started
+      service: name=nginx state=started enabled=yes
