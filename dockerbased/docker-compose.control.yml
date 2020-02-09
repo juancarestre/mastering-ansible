@@ -3,12 +3,16 @@ version: '3.1'
 services:
   control:
     build: .
-    image: ansiblecentos:latest
+    image: ubuntuansible:latest
     # command: 
     # environment:
     volumes: 
       - ./control-volume/:/home/ansible
     networks:
       - control_network
+
+      #Nuevo
+    ports: 
+      - "32769:22"
 networks:
   control_network:

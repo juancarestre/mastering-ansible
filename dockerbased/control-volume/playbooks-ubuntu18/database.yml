@@ -1,0 +1,16 @@
+---
+- hosts: database
+  become: true
+  tasks:
+    - name: install mysql-server
+      apt: name=mysql-server state=present update_cache=yes
+    - name: ensure mysql started
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+# sudo wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+# sudo yum localinstall mysql57-community-release-el7-11.noarch.rpm 
+# sudo yum install mysql-community-server
+# systemctl start mysqld.service

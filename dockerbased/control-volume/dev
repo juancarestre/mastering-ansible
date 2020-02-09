@@ -1,0 +1,17 @@
+[all:vars]
+ansible_user=root
+ansible_ssh_pass=Hola12345.
+
+[loadbalancer]
+lb01 
+
+[webserver]
+app01 ansible_host=app01-app02
+
+app02 ansible_host=app01-app02
+
+[database]
+db ansible_host=db01
+
+[control]
+control ansible_connection=local

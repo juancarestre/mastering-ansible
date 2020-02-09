@@ -11,6 +11,15 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
+#Install ping
+RUN apt-get -y update
+RUN apt-get -y install iputils-ping
+
+#Install vi
+RUN apt-get -y vim
+
+#Install sshpass
+RUN apt-get -y install sshpass
 
 #Install ansible
 RUN mkdir -p /home/ansible

@@ -2,17 +2,22 @@ version: '3.1'
 
 services:
   lb01:
-    image: ubuntu:latest
-    stdin_open: true
-    tty: true
+    build: Dockerfile
+    image: ubuntuansible:latest
+    # stdin_open: true
+    # tty: true
+    ports: 
+      - "32768:22"
   app01-app02:
-    image: ubuntu:latest
-    stdin_open: true
-    tty: true
+    build: Dockerfile
+    image: ubuntuansible:latest
+    ports: 
+      - "32767:22"
   db01:
-    image: ubuntu:latest
-    stdin_open: true
-    tty: true
+    build: Dockerfile
+    image: ubuntuansible:latest
+    ports: 
+      - "32766:22"
 networks:
   default:
     external:
