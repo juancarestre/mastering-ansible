@@ -16,10 +16,11 @@ RUN apt-get -y update
 RUN apt-get -y install iputils-ping
 
 #Install vi
-RUN apt-get -y vim
+RUN apt-get -y install vim
 
 #Install sshpass
 RUN apt-get -y install sshpass
+
 
 #Install ansible
 RUN mkdir -p /home/ansible
@@ -27,7 +28,9 @@ WORKDIR /home/ansible
 RUN apt-get -y install ansible
 ARG name=ubuntuansible
 
-EXPOSE 22
+COPY control-volume/ansible.cfg /etc/ansible/ansible.cfg
+
+EXPOSE 22 80 8080
 CMD ["/usr/sbin/sshd", "-D"]
 
 # $ docker run -d -P --name uas ubuntuansiblessh

@@ -8,11 +8,13 @@ services:
     # tty: true
     ports: 
       - "32768:22"
+      - "8080:80"
   app01-app02:
     build: Dockerfile
     image: ubuntuansible:latest
     ports: 
       - "32767:22"
+      - "80:80"
   db01:
     build: Dockerfile
     image: ubuntuansible:latest
