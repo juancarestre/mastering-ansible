@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  control:
+    build: .
+    image: ansiblecentos:latest
+    # command: 
+    # environment:
+    volumes: 
+      - ./control-volume/:/home/ansible
+    networks:
+      - control_network
+networks:
+  control_network:

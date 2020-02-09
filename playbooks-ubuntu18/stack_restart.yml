@@ -10,21 +10,21 @@
   become: true
   tasks:
     - name: Bringing down apache2
-      service: name=httpd state=stopped
+      service: name=apache2 state=stopped
 
 # Restart mysqld
 - hosts: database
   become: true
   tasks:
     - name: restarting database
-      service: name=mysqld state=restarted
+      service: name=mysql state=restarted
 
 # Bring stack up
 - hosts: webserver
   become: true
   tasks:
     - name: Bringing started apache2
-      service: name=httpd state=started
+      service: name=apache2 state=started
 
 - hosts: loadbalancer
   become: true
