@@ -7,3 +7,4 @@
           name:
             - curl
             - unzip
+            - python-httplib2

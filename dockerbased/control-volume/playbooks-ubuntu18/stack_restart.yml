@@ -5,6 +5,7 @@
   tasks:
     - name: Bringing down nginx
       service: name=nginx state=stopped
+      
 
 - hosts: webserver
   become: true
