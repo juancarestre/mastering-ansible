@@ -28,6 +28,9 @@
       command: service mysql status
       changed_when: false
 
+    - name: verify mysql service
+      wait_for: host={{ansible_eth0.ipv4.address}} port=3306 timeout=1
+
 
 - hosts: control
   gather_facts: false
